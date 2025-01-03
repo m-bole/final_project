@@ -1,58 +1,91 @@
-# Programming Basics and Technical Data Analysis – Final Project
+# Final Project: Programming Basics and Technical Data Analysis
 
 ## Project Overview
-This project encompasses a variety of data analysis tasks, ranging from cleaning and preprocessing raw data to conducting exploratory data analysis (EDA) and performing natural language processing (NLP). The final deliverables include cleaned datasets, visualizations, and detailed analyses, all documented in Python notebooks. The project adheres to the requirements outlined in the assignment description, and the final submission includes:
+This project focuses on analyzing a dataset of tweets, performing data cleaning, exploratory analysis, natural language processing (NLP), and visualization. Outputs are saved in the `outputs` folder, while the main processing logic resides in the Jupyter Notebook (`final_project.ipynb`).
 
-- **Cleaned data** in `.csv` format.
-- **Python notebooks** in `.ipynb` format for each major section.
-- A folder structure that facilitates reproducibility and easy navigation.
+## Features
+### Part 1: Data Cleaning
+- **Weekday Conversion**: Abbreviated weekdays converted to full names (e.g., `Mon` -> `Monday`).
+- **Month Conversion**: Abbreviated months replaced with numeric equivalents (e.g., `Jan` -> `01`).
+- **Clean Date Column**: Added a new column in the `DD.MM.YYYY` format (additional step by me).
+- **Stopword Removal**: Removed unnecessary words from the tweet text.
+- **Extracted Links**: Extracted tweet, media, and URL links. Data saved to `.txt` files.
 
----
+### Part 2: Exploratory Data Analysis
+- Identified:
+  - Top 5 tweets by likes and retweets.
+  - Tweets by verified users.
+  - Tweets from the earliest account and the most-followed user.
+  - Most common day for tweets.
+- Saved analysis results to individual CSV files in the `outputs` folder.
 
-## Project Tasks
+### Part 3: Natural Language Processing
+- Extracted:
+  - People (`persons`)
+  - Places (`places`)
+  - Organizations (`organisations`)
+- Created respective columns in the processed dataset.
 
-### Part 1 - Processing and Cleaning the Data
-Tasks performed:
-1. **Replace Abbreviated Weekday Names:** Abbreviated weekday names in the `created_at` column were replaced with their full English equivalents.
-2. **Replace Abbreviated Month Names:** Abbreviated month names in the `user_created_at` column were converted to numerical equivalents (e.g., `Jun` to `06`).
-3. **Extract Tweet Links:** All links to tweets were extracted and stored in a separate list.
-4. **Extract Links from Tweets:** All links in the `urls` column were extracted and stored in a separate list.
-5. **Extract Image Links:** All image links from the `media` column were extracted and stored in a separate list.
-6. **Remove Stopwords:** All stopwords in the `text` column were removed, and the cleaned text was saved in a new column, `text_without_stopwords`.
+### Part 4: Visualization
+- Generated a bar chart showing the number of tweets per weekday.
+- Saved the chart as `tweets_per_day.png` in the `outputs` folder.
 
----
+## Outputs
+All results are saved in the `outputs` folder:
+1. `processed_tweets.csv`: Fully processed dataset.
+2. `tweet_links.txt`: List of tweet URLs.
+3. `url_links.txt`: List of URLs found in tweets.
+4. `media_links.txt`: List of media links.
+5. `top_likes.csv`: Top 5 tweets by likes.
+6. `top_retweets.csv`: Top 5 tweets by retweets.
+7. `earliest_user_tweets.csv`: Tweets from the earliest created account.
+8. `most_followed_tweets.csv`: Tweets from the most-followed user.
+9. `verified_users.csv`: Tweets from verified users.
+10. `tweets_per_day.png`: Visualization of tweet frequency by weekday.
 
-### Part 2 - Exploratory Data Analysis (EDA)
-Tasks performed:
-1. **Top 5 Tweets by Likes:** Listed the top 5 tweets with the highest number of likes.
-2. **Top 5 Tweets by Retweets:** Listed the top 5 tweets with the highest number of retweets.
-3. **Non-sensitive Tweets:** Filtered tweets not considered 'sensitive' (`possibly_sensitive` column).
-4. **Earliest Account Tweets:** Displayed tweets from the user who created their account the earliest.
-5. **Most Followed User:** Displayed tweets from the user with the most followers.
-6. **Verified Users:** Showed tweets from verified users.
-7. **Most Frequent Posting Day:** Identified the most frequent day of the week for tweets in the dataset.
+## Requirements
+- Python 3.8+
+- Required libraries are listed in `requirements.txt`. Install them using:
+  ```bash
+  pip install -r requirements.txt
+  ```
 
----
+## Usage
+1. **Set Up Environment**:
+   ```bash
+   python -m venv env
+   source env/bin/activate
+   pip install -r requirements.txt
+   ```
 
-### Part 3 - Natural Language Processing (NLP)
+2. **Run the Notebook**:
+   Open `final_project.ipynb` in Jupyter Notebook or JupyterLab and execute all cells.
 
-**Task:** Extract named entities (people, places, organizations) from the `text` column.
+3. **View Outputs**:
+   Check the `outputs` folder for all processed results and visualizations.
 
-**Model Choice:** Initially, PolDeepNer was considered for this task due to its specificity to Polish NER. However, due to compatibility and runtime issues, an alternative model, **`allegro/herbert-base-cased`**, from Hugging Face’s model hub was used.
+## Folder Structure
+```
+project-root/
+│
+├── final_project.ipynb  # Jupyter Notebook containing all processing logic
+├── dane1.csv            # Input dataset
+├── requirements.txt     # Required libraries
+│
+├── outputs/
+│   ├── processed_tweets.csv
+│   ├── tweet_links.txt
+│   ├── url_links.txt
+│   ├── media_links.txt
+│   ├── top_likes.csv
+│   ├── top_retweets.csv
+│   ├── earliest_user_tweets.csv
+│   ├── most_followed_tweets.csv
+│   ├── verified_users.csv
+│   └── tweets_per_day.png
+│
+└── README.md            # Project documentation
+```
 
-- **Justification:**
-    - The Hugging Face model is pre-trained on Polish text and supports NER tasks effectively.
-    - It integrates seamlessly with modern NLP libraries and is straightforward to use in Python.
-
-A separate notebook (`final_NER.ipyb`) documents the process of loading the model, extracting named entities, and saving results in `processed_dane1_with_entities.csv`.
-
----
-
-### Part 4 - Visualization
-
-**Task:** Create a graph showing the number of tweets per day of the week using Matplotlib.
-
-Steps:
-1. The `weekday` column, created during data cleaning, was used to group tweets by day of the week.
-2. A bar graph was plotted to show the distribution of tweets across the week.
-
+## Acknowledgments
+- This project uses the `pl_core_news_lg` SpaCy model for processing Polish text.
