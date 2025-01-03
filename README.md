@@ -30,7 +30,7 @@ This project focuses on analyzing a dataset of tweets, performing data cleaning,
 - Generated a bar chart showing the number of tweets per weekday.
 - Saved the chart as `tweets_per_day.png` in the `output` folder.
 
-## output
+## Output
 All results are saved in the `output` folder:
 1. `processed_tweets.csv`: Fully processed dataset.
 2. `tweet_links.txt`: List of tweet URLs.
