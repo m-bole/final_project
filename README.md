@@ -1,7 +1,7 @@
 # Final Project: Programming Basics and Technical Data Analysis
 
 ## Project Overview
-This project focuses on analyzing a dataset of tweets, performing data cleaning, exploratory analysis, natural language processing (NLP), and visualization. Outputs are saved in the `outputs` folder, while the main processing logic resides in the Jupyter Notebook (`final_project.ipynb`).
+This project focuses on analyzing a dataset of tweets, performing data cleaning, exploratory analysis, natural language processing (NLP), and visualization. output are saved in the `output` folder, while the main processing logic resides in the Jupyter Notebook (`final_project.ipynb`).
 
 ## Features
 ### Part 1: Data Cleaning
@@ -17,7 +17,7 @@ This project focuses on analyzing a dataset of tweets, performing data cleaning,
   - Tweets by verified users.
   - Tweets from the earliest account and the most-followed user.
   - Most common day for tweets.
-- Saved analysis results to individual CSV files in the `outputs` folder.
+- Saved analysis results to individual CSV files in the `output` folder.
 
 ### Part 3: Natural Language Processing
 - Extracted:
@@ -28,10 +28,10 @@ This project focuses on analyzing a dataset of tweets, performing data cleaning,
 
 ### Part 4: Visualization
 - Generated a bar chart showing the number of tweets per weekday.
-- Saved the chart as `tweets_per_day.png` in the `outputs` folder.
+- Saved the chart as `tweets_per_day.png` in the `output` folder.
 
-## Outputs
-All results are saved in the `outputs` folder:
+## output
+All results are saved in the `output` folder:
 1. `processed_tweets.csv`: Fully processed dataset.
 2. `tweet_links.txt`: List of tweet URLs.
 3. `url_links.txt`: List of URLs found in tweets.
@@ -61,8 +61,8 @@ All results are saved in the `outputs` folder:
 2. **Run the Notebook**:
    Open `final_project.ipynb` in Jupyter Notebook or JupyterLab and execute all cells.
 
-3. **View Outputs**:
-   Check the `outputs` folder for all processed results and visualizations.
+3. **View output**:
+   Check the `output` folder for all processed results and visualizations.
 
 ## Folder Structure
 ```
@@ -72,7 +72,7 @@ project-root/
 ├── dane1.csv            # Input dataset
 ├── requirements.txt     # Required libraries
 │
-├── outputs/
+├── output/
 │   ├── processed_tweets.csv
 │   ├── tweet_links.txt
 │   ├── url_links.txt
