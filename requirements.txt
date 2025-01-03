@@ -1,0 +1,5 @@
+pandas 
+matplotlib 
+spacy 
+nltk 
+pl-core-news-lg
